@@ -1,0 +1,7 @@
+funcion landa
+
+metodo stream java
+
+lista de autoridades
+
+Jwts.parseer(): es para analizar el token

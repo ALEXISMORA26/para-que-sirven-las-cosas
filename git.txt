@@ -1,0 +1,14 @@
+para inicializar el git se ocupa: git init
+para ver el estatus de los archivos: git status -s
+para hacer el seguimiento se ocupa: git add (nombre del archivo) o git add .
+para agregar se ocupa: git commit -m "(nombre de como quieres que se agregue)"
+para ver cuantos commits se han hecho: git log --oneline
+para hacer seguimiento y hacer commit: git commit -am "(nombre de como lo quieres agregar)"
+para crear una nueva rama: git branch (nombre de la rama)
+para ver las ramas y ver la rama en la que estás: git branch
+para cambiear el flujo de trabajo de rama: git checkout (nombre de la rama)
+para fusionar las ramas: git merge (nombre de la rama)
+para borrar una rama: git branch -d (nombre de la rama)
+para subir a github: git push origin (rama)
+para sincronizar git y github: git pull
+para regresar un commit: git checkout (id del commit)

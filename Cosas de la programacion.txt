@@ -1,0 +1,11 @@
+// html
+Get: aparese en la URL
+Post: no aparece en la URL
+Name: sirve para llamarlo en JavaScript o al servlet
+Value: sirve para mandarlo al servidor
+th: table head(Titulo de la tabla)
+tr: table row (Espacios de la tabla, van de arriva hacia abajo)
+td: table data (Va adentro del tr, Datos de la tabla, van de izquierda a derecha)
+
+
+// 

@@ -1,0 +1,101 @@
+para cambiar la base de datos: use (nombre de la base de datos);
+para ver las tablas: show tables;
+para ver las bases de datos: show databases;
+para ver la configuracion de la tabla y columnas: desc (nombre de la tabla);
+para eliminar la tabla: drop table (nombre de la tabla);
+para seleccionar todo adentro de la tabla: select * from (nombre de la tabla);
+para eliminar todos los datos de una tabla: truncate (nombre tabla);
+
+CREAR TABLAS(GENERAL):
+create table mmapacurricular(
+id_mc int not null auto_increment,
+des_esp varchar(20) not null,
+id_esp int not null,
+id_niv int not null,
+cla_ua int not null,
+primary key(id_mc),
+foreign key(id_esp) references cespecialidad(id_esp) on delete no action on update cascade,
+foreign key(id_niv) references cnivel(id_niv) on delete no action on update cascade,
+foreign key(cla_ua) references munidaddeaprendizaje(cla_ua) on delete no action on update cascade);
+
+
+create table dkardex(
+id_dkd int not null auto_increment,
+cal_dkd int,
+id_mc int,
+id_pa int,
+id_ekd int,
+foreign key(id_ekd) references ekardex(id_ekd) on delete no action on update cascade,
+foreign key(id_mc) references mmapacurricular(id_mc) on delete no action on update cascade,
+foreign key(id_pa) references cperiododeacreditacion(id_pa) on delete no action on update cascade,
+key(cal_dkd),
+primary key(id_dkd));
+
+create table chypercomb(
+id_hp int not null auto_increment,
+nomb_hp varchar(20) not null,
+descr_hp varchar(20) not null,
+id_daño int not null,
+primary key(id_hp),
+foreign key(id_daño) references cdaño(id_daño) on delete no action on update cascade);
+
+foreign key(id_) references (id_) on delete no action on update cascade
+
+
+create table mpersonajes(
+id_pers int not null auto_increment,
+nomb_pers varchar(20) not null,
+desc_pers varchar(20) not null,
+id_talla int not null,
+id_univ int not null,
+id_varia int,
+id_habi int not null,
+id_lp int not null,
+id_movi int not null,
+id_jerar int not null,
+primary key(id_pers),
+foreign key(id_talla) references ctalla(id_talla) on delete no action on update cascade,
+foreign key(id_univ) references cuniverso(id_univ) on delete no action on update cascade,
+foreign key(id_varia) references cvariaciones(id_varia) on delete no action on update cascade,
+foreign key(id_habi) references mhabilidades(id_habi) on delete no action on update cascade,
+foreign key(id_lp) references clevelpower(id_lp) on delete no action on update cascade,
+foreign key(id_movi) references cmovilidad(id_movi) on delete no action on update cascade,
+foreign key(id_jerar) references cjerarquia(id_jerar) on delete no action on update cascade);
+
+
+CONSULTAS:
+select nom_esp as Carrera, des_niv as Cuatrimestre, nom_ua as Asignatura
+from ccarrera inner join mmapacurricular
+on (ccarrera.id_esp = mmapacurricular.id_esp)
+inner join cnivel
+on (cnivel.id_niv = mmapacurricular.id_niv)
+inner join munidaddeaprendizaje
+on (munidaddeaprendizaje.cla_ua = mmapacurricular.cla_ua);
+
+
+select cal_dkd as Calificacion, id_mc as Cuatrimestre, id_pa as Tipo, id_edk as Matricilaalumno
+inner join mmapacurricular
+on (mmapacurricular.id_mc = dkardex.id_mc)
+inner join cperiododeacreditacion
+on (cperiododeacreditacion.des_pa = dkardex.id_pa)
+inner join ekardex
+on (ekardex.bol_alu = dkardex.id_ekd)
+;
+
+select id_mc as Cuatrimestre, id_pa as Tipo, id_edk as Matricilaalumno
+from
+inner join cperiododeacreditacion
+on (cperiododeacreditacion.des_pa = dkardex.id_pa)
+inner join ekardex
+on (ekardex.bol_alu = dkardex.id_ekd)
+;
+
+select cal_dkd as Calificacion, id_mc as Cuatrimestre, id_pa as Tipo, id_edk as Matricula from dkardex;
+
+
+
+
+
+
+
+

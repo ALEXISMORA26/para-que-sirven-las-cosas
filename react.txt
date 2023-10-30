@@ -1,0 +1,10 @@
+para crear el proyecto en la carpeta abierta en vsc: npx create-react-app .
+para levantar el servidor: npm start
+para crear un componente con la extencion ES7+ react: rfc
+para instalar axios: npm i axios
+para instalar el formato del numero: npm i react-number-format
+para instaler el rutado: npm i react-router-dom
+
+
+
+
